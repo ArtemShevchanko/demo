@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WATCH_DIR="$HOME/demo/HW5/watch"
+WATCH_DIR="$HOME/demo/HW5/ex10watch"
 
 inotifywait -m -e create "$WATCH_DIR" --format "%f" | while read FILE
 do
