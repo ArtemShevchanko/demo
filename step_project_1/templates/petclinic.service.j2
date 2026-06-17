@@ -1,0 +1,25 @@
+[Unit]
+Description=Spring PetClinic Application
+After=network.target
+
+[Service]
+User={{ app_user }}
+WorkingDirectory={{ app_dir }}
+
+Environment="DB_HOST={{ db_host }}"
+Environment="DB_PORT={{ db_port }}"
+Environment="DB_NAME={{ db_name }}"
+Environment="DB_USER={{ db_user }}"
+Environment="DB_PASS={{ db_pass }}"
+
+ExecStart=/usr/bin/java -jar {{ app_jar }} \
+  --spring.profiles.active=mysql \
+  --spring.datasource.url=jdbc:mysql://{{ db_host }}:{{ db_port }}/{{ db_name }} \
+  --spring.datasource.username={{ db_user }} \
+  --spring.datasource.password={{ db_pass }}
+
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

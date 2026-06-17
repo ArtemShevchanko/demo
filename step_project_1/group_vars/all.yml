@@ -1,0 +1,13 @@
+---
+db_host: "192.168.56.11"
+db_port: "3306"
+db_name: "petclinic"
+db_user: "petclinic_user"
+db_pass: "petclinic_pass"
+
+app_user: "petclinic"
+project_dir: "/opt/spring-petclinic"
+app_dir: "/home/petclinic"
+app_jar: "/home/petclinic/petclinic.jar"
+
+java_version: "17"
